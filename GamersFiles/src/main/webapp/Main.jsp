@@ -19,7 +19,7 @@
 <body class="is-preload">
 	<%
 	MemberDTO logindto = (MemberDTO) session.getAttribute("login");
-	%>  
+	%>   
 	<!-- Wrapper -->
 	<div id="wrapper">
 		<!-- Header -->
