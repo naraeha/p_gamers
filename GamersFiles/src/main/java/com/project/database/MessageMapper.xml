@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.database.MessageMapper">
+	<insert id="sendMessage" parameterType="MessageDTO">
+		insert into p_message
+		values(num_message.nextval, #{sender}, #{recipient}, #{message},
+		sysdate)
+	</insert>
+	<select id="detailMessage" resultType="MessageDTO">
+		select * 
+		from p_message
+		where recipient=#{email} 
+		order by m_date
+	</select>
+	<delete id="delMessage" parameterType="Integer">
+		delete from p_message where num=#{num}
+	</delete>
+	<delete id="delAll" parameterType="String">
+		delete from p_message where recipient=#{email}
+	</delete>
+</mapper>
